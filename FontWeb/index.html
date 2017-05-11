@@ -27,13 +27,13 @@
             </div>
         </div>
         <div class="row marglat">                     	
-    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center" style="border:solid grey 2px">
+    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
     			<span class="glyphicon">&#xe087;</span>
     			<span id='latitude'>Latitude: </span>    			
     		</div>        	
         </div>
         <div class="row marglong">        	  
-    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center" style="border: solid grey 2px">
+    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
     			<span class="glyphicon">&#xe087;</span>
     			<span id='longitude'>Longitude: </span>    		
     		</div>        	
@@ -98,18 +98,42 @@
                 });
                 newLine.setMap(map);
             }
-            previousPosition = position;
 
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             document.getElementById("latitude").innerHTML="Latitude: "+ latitude.toFixed(4);
             document.getElementById("longitude").innerHTML="Longitude: "+ longitude.toFixed(4);
+            //localStorage.clear();
+            var position = latitude+ "  ,  "+ longitude;
 
-            var position1 = latitude.toFixed(5) + "  ,  "+ longitude.toFixed(5) ;
 
-            localStorage.clear();
+            for (var i=1; i<10 ; i++){ // création boucle pour sotcker 10 données (pas 9 comme on pourrait le constater suivant les paramètres de la boucle, cf les 2 lignes en dessous pour la 10ième valeur)
+            	if (i==1){ // initialisation de la "Position0" qui se fera qu'une seule fois lorsque i=1
+            		localStorage.setItem('Position'+0, position);// sotckage "position0" dans le local sotrage du navigateur
+            	}
+            	else{
+            		var previousposition = localStorage.getItem('Position'+(i-1), position); // je prend la valeur de la clé de la position précédente (i-1) et je la sotck dans une variable
 
-            localStorage.setItem('Position', position1);
+           		 	while (previousposition == position){ // vérification que la valeur précédente de position soit différente de la actuelle
+            			// stockage de la valeur actuelle de position dans le
+            		}
+            		localStorage.setItem('Position'+i, position);
+            	}   	
+            }
+            /*localStorage.setItem('Position', position);
+            var previousposition = localStorage.getItem('Position', position);
+
+            if (previousposition != position){
+            	console.log("coucou");
+            }*/
+
+           // for (var i = 0; i < 10 ; ++ i){
+            	//var previousPosition = localStorage.getItem('Position'+i, position);
+            	//while (previousPosition != position){
+            	//	localStorage.setItem('Position'+i, position);
+            	//}
+            	
+        	//}
         }
 
     </script>

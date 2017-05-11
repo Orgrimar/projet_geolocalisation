@@ -13,6 +13,25 @@
 		height: 80%;
 	}
 
+	.marglat{
+		border:solid grey 2px;
+		border-bottom: none;
+		border-left: none;
+		border-right: none;
+		}
+
+	.marglong{
+		border:solid grey 2px;
+		border-left: none;
+		border-right: none;
+	}
+
+	.footermdlg{
+		margin-top: 15px;
+		padding-top: 20px;
+		margin-bottom: 20px
+	}
+
 }
 
 @media screen and (min-width: 720px){
@@ -32,11 +51,20 @@
 
 	.footermdlg{
 		margin-top: 10px;
+		padding-top: 20px;
+		margin-bottom: 20px
 	}
 
 	.marglat{
-		margin-top:30px;
+		margin-top:20px;
+		border:solid grey 2px;
 	}
+
+	.marglong{
+		margin-top: 10px;
+		border:solid grey 2px;
+	}
+
 }
 
 @media screen and (min-width: 992px){
@@ -56,14 +84,18 @@
 
 	.footermdlg{
 		margin-top: 30px;
+		padding-top: 20px;
+		margin-bottom: 20px
 	}
 
 	.marglat{
 		margin-top:30px;
+		border:solid grey 2px;
 	}
 
 	.marglong{
 		margin-top: 10px;
+		border:solid grey 2px;
 	}
 }
 
