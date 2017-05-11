@@ -10,11 +10,7 @@
 	}
 
 	.hauteur{
-		height: 90%;
-	}
-
-	.footermdlg{
-		margin-top: 10px;
+		height: 80%;
 	}
 
 }
@@ -38,6 +34,9 @@
 		margin-top: 10px;
 	}
 
+	.marglat{
+		margin-top:30px;
+	}
 }
 
 @media screen and (min-width: 992px){
@@ -57,6 +56,14 @@
 
 	.footermdlg{
 		margin-top: 30px;
+	}
+
+	.marglat{
+		margin-top:30px;
+	}
+
+	.marglong{
+		margin-top: 10px;
 	}
 }
 

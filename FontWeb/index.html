@@ -20,26 +20,25 @@
 <!-- Contenu-->	
     <div class="container" style="height:80%">
         <div class="row hauteur">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 hauteur">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 100%; padding-left: 0px; padding-right: 0px">
             	<div id="map_canvas"></div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 text-center">
-            	
-            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border:solid grey 2px ;margin-bottom:10px">
-            			<script>
-            				var latitude = parseFloat(localStorage.getItem('Latitude'));
-            				document.write("Latitude: " + latitude.toFixed(4));
-            			</script> 
-            		</div>
-            		
-            		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: solid grey 2px">
-            			<script>
-            				var longitude = parseFloat(localStorage.getItem('Longitude'));
-            				document.write("Longitude: " + longitude.toFixed(4));
-            			</script> 
-            		</div>		
-            	
-            </div>
+        </div>
+        <div class="row marglat">                     	
+    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center" style="border:solid grey 2px">
+    			<script>
+    				var latitude = parseFloat(localStorage.getItem('Latitude'));
+    				document.write("Latitude: " + latitude.toFixed(4));
+    			</script> 
+    		</div>        	
+        </div>
+        <div class="row marglong">        	  
+    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center"" style="border: solid grey 2px">
+    			<script>
+    				var longitude = parseFloat(localStorage.getItem('Longitude'));
+    				document.write("Longitude: " + longitude.toFixed(4));
+    			</script> 
+    		</div>        	
         </div>
         <div class="row footermdlg" style="border-top: solid 2px grey; color: grey">
     		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
