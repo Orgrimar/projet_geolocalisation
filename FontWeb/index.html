@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 </head>
 <body onload="initialize()">
@@ -26,18 +28,19 @@
         </div>
         <div class="row marglat">                     	
     		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center" style="border:solid grey 2px">
+    			<span class="glyphicon">&#xe087;</span>
+    			<span id='latitude'>??????</span>
     			<script>
-    				var latitude = parseFloat(localStorage.getItem('Latitude'));
-    				document.write("Latitude: " + latitude.toFixed(4));
+    				//var latitude = parseFloat(position.coords.latitude);
+    				//document.write("Latitude: " + latitude.toFixed(4));
     			</script> 
     		</div>        	
         </div>
         <div class="row marglong">        	  
     		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center" style="border: solid grey 2px">
-    			<script>
-    				var longitude = parseFloat(localStorage.getItem('Longitude'));
-    				document.write("Longitude: " + longitude.toFixed(4));
-    			</script> 
+    			<span class="glyphicon">&#xe087;</span>
+    			<span id='longitude'>??????</span>
+    		
     		</div>        	
         </div>
         <div class="row footermdlg" style="border-top: solid 2px grey; color: grey">
@@ -61,6 +64,15 @@
     
 
     <script type="text/javascript">
+
+   	$( document ).ready(function() {
+  // Handler for .ready() called.
+
+		  console.log("i'm ready");
+		  $('#latitude').html('Latitude: '+ latitude);
+		  $('#longitude').html('Longitude: '+ longitude);
+
+	});
         var previousPosition = null;
 
         function initialize() {
@@ -103,12 +115,24 @@
 
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            while (position) {
 
-                localStorage.setItem('Latitude', latitude);
-                localStorage.setItem('Longitude', longitude);
-                break;
-            }
+            var position1 = latitude.toFixed(5) + "  ,  "+ longitude.toFixed(5) ;
+
+            localStorage.clear();
+
+            localStorage.setItem('Position', position1);
+             
+
+           
+             //var tabelaupos = [];
+
+            //while (20) {
+            	//for (i = 0; i < 20; i++){
+
+
+            	//}
+
+		//	}
 
         }
 
