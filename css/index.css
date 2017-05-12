@@ -17,7 +17,7 @@
 		border:solid grey 2px;
 		border-bottom: none;
 		border-left: none;
-		border-right: none;
+		border-right: none;		
 		}
 
 	.marglong{
@@ -29,7 +29,8 @@
 	.footermdlg{
 		margin-top: 15px;
 		padding-top: 20px;
-		margin-bottom: 20px
+		margin-bottom: 20px;		
+		color: grey;
 	}
 
 }
@@ -52,7 +53,9 @@
 	.footermdlg{
 		margin-top: 10px;
 		padding-top: 20px;
-		margin-bottom: 20px
+		margin-bottom: 20px;
+		border-top: solid 2px grey;
+		color: grey;
 	}
 
 	.marglat{
@@ -85,7 +88,9 @@
 	.footermdlg{
 		margin-top: 30px;
 		padding-top: 20px;
-		margin-bottom: 20px
+		margin-bottom: 20px;
+		border-top: solid 2px grey;
+		color: grey;
 	}
 
 	.marglat{
@@ -109,6 +114,7 @@
             padding: 0px;
             font-family: 'Quicksand', sans-serif;
             font-weight: bold;
+            background-color: #ECECEC;
         }
 
         #map_canvas {
