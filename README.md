@@ -5,6 +5,7 @@ projet_geolocalisation
 
 </br>Page web : lancer FontWeb/index.html avec un navigateur web.
 </br>Application Cordova :
-</br>Application Desktop Electron : 	cd projet_geolocalisation/Appelectron/electron
-				npm install && npm start
-				enjoy!
+</br>Application Desktop Electron : 	
+</br>cd projet_geolocalisation/Appelectron/electron
+</br>npm install && npm start
+</br>enjoy!
