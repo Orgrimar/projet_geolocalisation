@@ -1,10 +1,10 @@
 projet_geolocalisation
 :
 
-Groupe: DANIEL Arthur, GRECO Xavier, JOUANJAN Eliott, POLATO Jérôme
+</br>Groupe: DANIEL Arthur, GRECO Xavier, JOUANJAN Eliott, POLATO Jérôme
 
-Page web : lancer FontWeb/index.html avec un navigateur web.
-Application Cordova :
-Application Desktop Electron : 	cd projet_geolocalisation/Appelectron/electron
+</br>Page web : lancer FontWeb/index.html avec un navigateur web.
+</br>Application Cordova :
+</br>Application Desktop Electron : 	cd projet_geolocalisation/Appelectron/electron
 				npm install && npm start
 				enjoy!
