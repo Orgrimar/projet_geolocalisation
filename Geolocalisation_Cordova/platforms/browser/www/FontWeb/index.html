@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBErIGT-UQYZVvr47ahKsdxfIc27_qGos"></script>
+</head>
+<body onload="initialize()">
+
+<!-- header-->
+	<div class="container-fluid headerxs">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<h1 class="text-center">NETEDIA-APP</h1>
+			</div>
+		</div>
+	</div>
+<!-- Contenu-->	
+    <div class="container" style="height:80%">
+        <div class="row hauteur">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 100%; padding-left: 0px; padding-right: 0px">
+            	<div id="map_canvas"></div>
+            </div>
+        </div>
+        <div class="row marglat">                     	
+    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
+    			<span class="glyphicon">&#xe087;</span>
+    			<span id='latitude'>Latitude: </span>    			
+    		</div>        	
+        </div>
+        <div class="row marglong">        	  
+    		<div class="col-md-offset-4 col-lg-offset-4 col-xs-12 col-sm-12 col-md-4 col-lg-4 text-center">
+    			<span class="glyphicon">&#xe087;</span>
+    			<span id='longitude'>Longitude: </span>    		
+    		</div>        	
+        </div>
+        <div class="row footermdlg">
+    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+    			DANIEL Arthur
+    		</div>
+    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+    			GRECO Xavier
+    		</div>
+    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+    			JOUANJAN Eliott
+    		</div>
+    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+    			POLATO Jérôme
+    		</div>
+    	</div> 
+    </div>
+
+    <!--Footer -->
+     	
+    
+
+    <script type="text/javascript">
+
+        var previousPosition = null;
+
+        function initialize() {
+            map = new google.maps.Map(document.getElementById("map_canvas"), {
+                zoom: 19,
+                center: new google.maps.LatLng(48.858565, 2.347198),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+        }
+
+        if (navigator.geolocation)
+            var watchId = navigator.geolocation.watchPosition(successCallback,
+                null,
+                { enableHighAccuracy: true });
+        else
+            alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+
+        function successCallback(position) {
+            map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                map: map
+            });
+            if (previousPosition) {
+                var newLineCoordinates =
+                    [
+                        new google.maps.LatLng(previousPosition.coords.latitude, previousPosition.coords.longitude),
+                        new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+                    ];
+
+                var newLine = new google.maps.Polyline({
+                    path: newLineCoordinates,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+                newLine.setMap(map);
+            }
+
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById("latitude").innerHTML="Latitude: "+ latitude.toFixed(4);
+            document.getElementById("longitude").innerHTML="Longitude: "+ longitude.toFixed(4);
+            //localStorage.clear();
+            var position = latitude+ "  ,  "+ longitude;
+            localStorage.clear();
+            localStorage.setItem('Position', position);
+
+
+            /*for (var i=1; i<10 ; i++){ // création boucle pour sotcker 10 données (pas 9 comme on pourrait le constater suivant les paramètres de la boucle, cf les 2 lignes en dessous pour la 10ième valeur)
+            	if (i==1){ // initialisation de la "Position0" qui se fera qu'une seule fois lorsque i=1
+            		localStorage.setItem('Position'+0, position);// sotckage "position0" dans le local sotrage du navigateur
+            	}
+            	else{
+            		var previousposition = localStorage.getItem('Position'+(i-1), position); // je prend la valeur de la clé de la position précédente (i-1) et je la sotck dans une variable
+            		while (1){ 
+            			if (previousposition == position) continue;
+            			else break;
+            		}  // Sort de la boucle infinie si la position précédente est différente de la actuelle et stock la nouvelle position actuelle dans le localstorage grace a la éieme ligne en dessous
+
+           		 	localStorage.setItem('Position'+i, position);
+            	}   	
+            }*/
+
+
+
+            /*localStorage.setItem('Position', position);
+            var previousposition = localStorage.getItem('Position', position);
+
+            if (previousposition != position){
+            	console.log("coucou");
+            }*/
+
+           // for (var i = 0; i < 10 ; ++ i){
+            	//var previousPosition = localStorage.getItem('Position'+i, position);
+            	//while (previousPosition != position){
+            	//	localStorage.setItem('Position'+i, position);
+            	//}
+            	
+        	//}
+        }
+
+    </script>
+</body>
+</html>
